@@ -60,9 +60,9 @@ class PickerExample extends Component {
           onValueChange={this.updateUser}
           style={styles.picker}
         >
-          <Picker.Item label="Steve" value="steve" />
-          <Picker.Item label="Ellen" value="ellen" />
-          <Picker.Item label="Maria" value="maria" />
+          <Picker.Item label="N/A" value="N/A" />
+          <Picker.Item label="male" value="male" />
+          <Picker.Item label="Female" value="Female" />
         </Picker>
 
         <TouchableOpacity
