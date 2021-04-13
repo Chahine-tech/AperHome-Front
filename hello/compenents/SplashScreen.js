@@ -8,7 +8,9 @@ import {
   TextInput,
   TouchableOpacity,
 } from "react-native";
-
+import DropDownPicker from "react-native-dropdown-picker";
+import { ModalDatePicker } from "react-native-material-date-picker";
+import DatePicker from "./../helpers/DatePicker";
 class PickerExample extends Component {
   state = { user: "" };
   updateUser = (user) => {
@@ -28,6 +30,7 @@ class PickerExample extends Component {
   login = (email, pass) => {
     alert("email: " + email + " password: " + pass);
   };
+
   render() {
     return (
       <View style={styles.container}>
@@ -40,8 +43,8 @@ class PickerExample extends Component {
         <TextInput
           style={styles.input}
           underlineColorAndroid="transparent"
-          placeholder="Email"
-          placeholderTextColor="#9a73ef"
+          placeholder=" Email                                           "
+          placeholderTextColor="black"
           autoCapitalize="none"
           onChangeText={this.handleEmail}
         />
@@ -49,22 +52,33 @@ class PickerExample extends Component {
         <TextInput
           style={styles.input}
           underlineColorAndroid="transparent"
-          placeholder="Password"
-          placeholderTextColor="#9a73ef"
+          placeholder=" Password                                   "
+          placeholderTextColor="black"
+          autoCapitalize="none"
+          onChangeText={this.handlePassword}
+        />
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder=" Birthday                                     "
+          placeholderTextColor="black"
           autoCapitalize="none"
           onChangeText={this.handlePassword}
         />
 
-        <Picker
-          selectedValue={this.state.user}
-          onValueChange={this.updateUser}
-          style={styles.picker}
-        >
-          <Picker.Item label="N/A" value="N/A" />
-          <Picker.Item label="male" value="male" />
-          <Picker.Item label="Female" value="Female" />
-        </Picker>
-
+        <DropDownPicker
+          placeholder="Choose a gender"
+          style={styles.dropDown}
+          items={[
+            { label: "N/A", value: "gender0" },
+            { label: "Male", value: "gender1" },
+            { label: "Female", value: "gender2" },
+          ]}
+          defaultIndex={0}
+          containerStyle={styles.dropcontainer}
+          onChangeItem={(gender) => console.log(gender.label, gender.value)}
+        />
+        <DatePicker></DatePicker>
         <TouchableOpacity
           style={styles.submitButton}
           onPress={() => navigation.push("Splash")}
@@ -78,15 +92,31 @@ class PickerExample extends Component {
 export default PickerExample;
 
 const styles = StyleSheet.create({
+  datePicker: {
+    flex: 1,
+    borderWidth: 1,
+  },
+  dropcontainer: {
+    height: 40,
+    marginLeft: 0,
+    marginBottom: 10,
+  },
+  dropDown: {
+    height: 50,
+    width: 200,
+  },
   container: {
     alignItems: "center",
     justifyContent: "center",
+    backgroundColor: "#364F59",
   },
   input: {
     margin: 15,
     height: 40,
     borderColor: "black",
     borderWidth: 1,
+    borderRadius: 10,
+    backgroundColor: "white",
   },
   submitButton: {
     backgroundColor: "black",
@@ -103,9 +133,12 @@ const styles = StyleSheet.create({
     marginTop: -10,
   },
   picker: {
+    flex: 0.3,
     height: 50,
     width: 150,
     marginLeft: 10,
+    backgroundColor: "black",
+    borderWidth: 20,
   },
   text: {
     fontSize: 30,
