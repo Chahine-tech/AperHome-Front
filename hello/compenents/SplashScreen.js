@@ -11,30 +11,13 @@ import {
 import DropDownPicker from "react-native-dropdown-picker";
 import { ModalDatePicker } from "react-native-material-date-picker";
 import DatePicker from "./../helpers/DatePicker";
+
 class PickerExample extends Component {
-  state = { user: "" };
-  updateUser = (user) => {
-    this.setState({ user: user });
-  };
-
-  state = {
-    email: "",
-    password: "",
-  };
-  handleEmail = (text) => {
-    this.setState({ email: text });
-  };
-  handlePassword = (text) => {
-    this.setState({ password: text });
-  };
-  login = (email, pass) => {
-    alert("email: " + email + " password: " + pass);
-  };
-
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.textContainer}>Inscription </Text>
+        <Text style={styles.line}> ______________________________</Text>
         <TextInput
           style={styles.input}
           underlineColorAndroid="transparent"
@@ -73,13 +56,8 @@ class PickerExample extends Component {
           containerStyle={styles.dropcontainer}
           onChangeItem={(gender) => console.log(gender.label, gender.value)}
         />
+
         <DatePicker></DatePicker>
-        <TouchableOpacity
-          style={styles.submitButton}
-          onPress={() => navigation.push("Splash")}
-        >
-          <Text style={styles.submitButtonText}> Submit </Text>
-        </TouchableOpacity>
       </View>
     );
   }
@@ -87,7 +65,13 @@ class PickerExample extends Component {
 export default PickerExample;
 
 const styles = StyleSheet.create({
+  line: {
+    marginTop: -5,
+    fontWeight: "bold",
+    color: "#F9B233",
+  },
   textContainer: {
+    marginTop: 20,
     fontSize: 25,
     color: "white",
   },
@@ -96,6 +80,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   dropcontainer: {
+    marginTop: 15,
     height: 40,
     marginLeft: 0,
     marginBottom: 10,
@@ -112,19 +97,10 @@ const styles = StyleSheet.create({
   input: {
     margin: 15,
     height: 40,
-    borderColor: "black",
+    borderColor: "rgba(52, 52, 52, 0.8)",
     borderWidth: 1,
     borderRadius: 10,
     backgroundColor: "white",
-  },
-  submitButton: {
-    backgroundColor: "#F9B233",
-    padding: 10,
-    margin: 15,
-    height: 40,
-  },
-  submitButtonText: {
-    color: "white",
   },
 
   picker: {

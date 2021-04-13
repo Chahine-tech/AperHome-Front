@@ -21,12 +21,14 @@ export default class MyDatePicker extends Component {
         cancelBtnText="Cancel"
         customStyles={{
           dateIcon: {
+            marginTop: 20,
             position: "absolute",
             left: 0,
             top: 4,
             marginLeft: 0,
           },
           dateInput: {
+            marginTop: 35,
             marginLeft: 36,
             backgroundColor: "white",
           },
