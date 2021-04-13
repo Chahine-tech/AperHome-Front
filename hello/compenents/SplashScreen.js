@@ -34,12 +34,7 @@ class PickerExample extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.Logo}
-          source={require("../assets/LogoAperHome.png")}
-        />
-
-        <Text style={styles.text}>{this.state.user}</Text>
+        <Text style={styles.textContainer}>Inscription </Text>
         <TextInput
           style={styles.input}
           underlineColorAndroid="transparent"
@@ -92,6 +87,10 @@ class PickerExample extends Component {
 export default PickerExample;
 
 const styles = StyleSheet.create({
+  textContainer: {
+    fontSize: 25,
+    color: "white",
+  },
   datePicker: {
     flex: 1,
     borderWidth: 1,
@@ -119,7 +118,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   submitButton: {
-    backgroundColor: "black",
+    backgroundColor: "#F9B233",
     padding: 10,
     margin: 15,
     height: 40,
@@ -127,11 +126,7 @@ const styles = StyleSheet.create({
   submitButtonText: {
     color: "white",
   },
-  Logo: {
-    aspectRatio: 1.5,
-    resizeMode: "contain",
-    marginTop: -10,
-  },
+
   picker: {
     flex: 0.3,
     height: 50,
