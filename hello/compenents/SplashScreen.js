@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
 import { ModalDatePicker } from "react-native-material-date-picker";
-import DatePicker from "./../helpers/DatePicker";
+import DatePicker from "../helpers/DatePicker";
 
 class PickerExample extends Component {
   render() {
