@@ -8,55 +8,58 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
-  Button
+  Button,
 } from "react-native";
 
 async function login(email, password) {
-  const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/signin`,{
-    method : "POST",
-    headers : {'content-type' : 'application/json' },
-    body : JSON.stringify({email, password}),
-  })
-  const data = await response.json()
-  return data
+  const response = await fetch(
+    `${process.env.REACT_APP_API_URL}/api/auth/signin`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    }
+  );
+  const data = await response.json();
+  return data;
 }
-;
+export default function LoginScreen({ navigation }) {
+  return (
+    <View style={styles.containerGlobal}>
+      <View style={styles.container}>
+        <Button
+          title="Go to Dash"
+          onPress={() => navigation.navigate("Dash")}
+        ></Button>
+        <Image
+          style={styles.Logo}
+          source={require("../assets/LogoAperHome.png")}
+        ></Image>
+        <Text style={styles.textContainer}>Bienvenue </Text>
+        <Text style={styles.line}> ______________________________</Text>
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder=" Email                                           "
+          placeholderTextColor="black"
+          autoCapitalize="none"
+          onChangeText={this.handleEmail}
+        />
 
-export default function LoginScreen({navigation}) {
-
-return  (
-<View style={styles.containerGlobal}>
-        <View style={styles.container}>
-          <Button title="Go to Dash" onPress={() => navigation.navigate("Dash")}></Button>
-          <Image
-            style={styles.Logo}
-            source={require("../assets/LogoAperHome.png")}
-          ></Image>
-          <Text style={styles.textContainer}>Bienvenue </Text>
-          <Text style={styles.line}> ______________________________</Text>
-          <TextInput
-            style={styles.input}
-            underlineColorAndroid="transparent"
-            placeholder=" Email                                           "
-            placeholderTextColor="black"
-            autoCapitalize="none"
-            onChangeText={this.handleEmail}
-          />
-
-          <TextInput
-            style={styles.input}
-            underlineColorAndroid="transparent"
-            placeholder=" Password                                   "
-            placeholderTextColor="black"
-            autoCapitalize="none"
-            onChangeText={this.handlePassword}
-          />
-        </View>
-
-        <View style={styles.BOX}></View>
+        <TextInput
+          style={styles.input}
+          underlineColorAndroid="transparent"
+          placeholder=" Password                                   "
+          placeholderTextColor="black"
+          autoCapitalize="none"
+          onChangeText={this.handlePassword}
+        />
       </View>
-  )
-}  
+
+      <View style={styles.BOX}></View>
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   CWGContainer: {
