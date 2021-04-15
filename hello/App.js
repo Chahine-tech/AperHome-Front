@@ -21,6 +21,8 @@ import MB from "./helpers/MenuBar";
 import MB2 from "./helpers/MenuBar2";
 import MM from "./compenents/MoreScreen";
 import CWG from "./helpers/CWG";
+import AS from "./compenents/AboutScreen";
+import SC from './compenents/SplashScreen'
 
 function Register({ navigation }) {
   return (
@@ -90,7 +92,7 @@ function More({ navigation }) {
     <View styles={styles.ContainerMore}>
       <View>
         <MM />
-        <Button title="Go to Splash" onPress={() => navigation.push("Login")} />
+        <Button title="Go to Splash" onPress={() => navigation.push("About")} />
         <MB2 />
       </View>
     </View>
@@ -111,6 +113,21 @@ function Log({ navigation }) {
   );
 }
 
+function About({ navigation }) {
+  return (
+    <View styles={styles.ContainerMore}>
+      <AS />  
+    </View>
+  );
+}
+function Splash({ navigation }) {
+  return (
+    <View styles={styles.ContainerMore}>
+      <SC />  
+    </View>
+  );
+}
+
 const Stack = createStackNavigator();
 
 function App() {
@@ -120,7 +137,9 @@ function App() {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Log} />
         <Stack.Screen name="Pres1" component={Pres} />
+        <Stack.Screen name="About" component={About} />
         <Stack.Screen name="Dash" component={Dash} />
+        <Stack.Screen name="Splash" component={Splash} />
         <Stack.Screen name="More" component={More} />
       </Stack.Navigator>
     </NavigationContainer>

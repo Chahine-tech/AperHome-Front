@@ -1,13 +1,6 @@
 import React, { Component } from "react";
-import {
-  View,
-  Text,
-  Picker,
-  StyleSheet,
-  Image,
-  TextInput,
-  TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, Image } from "react-native";
+import MoreScreen from "../compenents/MoreScreen";
 
 class MB extends Component {
   render() {
@@ -25,6 +18,7 @@ class MB extends Component {
             </View>
 
             <Image source={require("../assets/barMenu/4.png")}></Image>
+
             <Image source={require("../assets/barMenu/5.png")}></Image>
           </View>
         </View>
