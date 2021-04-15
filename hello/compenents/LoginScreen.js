@@ -1,4 +1,5 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
+
 import {
   View,
   Text,
@@ -7,13 +8,26 @@ import {
   Image,
   TextInput,
   TouchableOpacity,
+  Button
 } from "react-native";
 
-class PickerExample extends Component {
-  render() {
-    return (
-      <View style={styles.containerGlobal}>
+async function login(email, password) {
+  const response = await fetch(`${process.env.REACT_APP_API_URL}/api/auth/signin`,{
+    method : "POST",
+    headers : {'content-type' : 'application/json' },
+    body : JSON.stringify({email, password}),
+  })
+  const data = await response.json()
+  return data
+}
+;
+
+export default function LoginScreen({navigation}) {
+
+return  (
+<View style={styles.containerGlobal}>
         <View style={styles.container}>
+          <Button title="Go to Dash" onPress={() => navigation.navigate("Dash")}></Button>
           <Image
             style={styles.Logo}
             source={require("../assets/LogoAperHome.png")}
@@ -41,10 +55,8 @@ class PickerExample extends Component {
 
         <View style={styles.BOX}></View>
       </View>
-    );
-  }
-}
-export default PickerExample;
+  )
+}  
 
 const styles = StyleSheet.create({
   CWGContainer: {
