@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   submitButtonLog: {
-    marginTop: -615,
+    marginTop: -620,
     marginLeft: 75,
     backgroundColor: "#F9B233",
     padding: 10,

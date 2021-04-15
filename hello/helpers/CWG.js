@@ -37,6 +37,7 @@ export default CWG;
 
 const styles = StyleSheet.create({
   CWGContainer: {
+    marginTop: 40,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#CE5643",
   },
   TextCWGAndFP: {
-    marginTop: 100,
+    marginTop: 110,
     marginBottom: 10,
     color: "#98C8E0",
   },
