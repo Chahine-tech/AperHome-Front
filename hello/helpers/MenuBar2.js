@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#364F59",
   },
   MenuBar: {
-    marginTop: 40,
+    marginTop: 80,
     marginBottom: 10,
     flexDirection: "row",
     justifyContent: "space-around",
@@ -50,6 +50,11 @@ const styles = StyleSheet.create({
     marginTop: -28,
   },
   Parentcontainer: {
+    backgroundColor: "#364F59",
+  },
+  BOX: {
+    width: 100,
+    height: 100,
     backgroundColor: "#364F59",
   },
 });
