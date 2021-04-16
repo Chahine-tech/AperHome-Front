@@ -10,6 +10,7 @@ import {
   SafeAreaView,
   ScrollView,
   StatusBar,
+  TouchableHighlight,
 } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -75,12 +76,33 @@ function Dash({ navigation }) {
         <ScrollView>
           <View style={styles.containerDash}>
             <Dashboard></Dashboard>
-            <MB></MB>
+            <View style={styles.Parentcontainer}>
+              <View style={styles.container99}>
+                <View style={styles.MenuBar1}>
+                  <TouchableOpacity onPress={() => navigation.navigate("More")}>
+                    <Image source={require("./assets/barMenu/1.png")}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => navigation.navigate("More")}>
+                    <Image source={require("./assets/barMenu/2.png")}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => navigation.navigate("Dash")}>
+                    <View style={styles.HomeButton}>
+                      <Image
+                        style={styles.HomeButton}
+                        source={require("./assets/barMenu/3.png")}
+                      ></Image>
+                    </View>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => navigation.navigate("More")}>
+                    <Image source={require("./assets/barMenu/4.png")}></Image>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => navigation.navigate("More")}>
+                    <Image source={require("./assets/barMenu/5.png")}></Image>
+                  </TouchableOpacity>
+                </View>
+              </View>
+            </View>
           </View>
-          <Button
-            title="Go to Register"
-            onPress={() => navigation.navigate("More")}
-          />
         </ScrollView>
       </SafeAreaView>
     </View>
@@ -92,11 +114,35 @@ function More({ navigation }) {
     <View styles={styles.ContainerMore}>
       <View>
         <MM />
-        <Button
-          title="Go to Splash"
-          onPress={() => navigation.navigate("About")}
-        />
-        <MB2 />
+        <View style={styles.BOX}></View>
+        <View style={styles.Parentcontainer2}>
+          <View style={styles.container99}>
+            <View style={styles.MenuBar1}>
+              <TouchableOpacity onPress={() => navigation.navigate("More")}>
+                <Image source={require("./assets/barMenu/1.png")}></Image>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("More")}>
+                <Image source={require("./assets/barMenu/2.png")}></Image>
+              </TouchableOpacity>
+
+              <View style={styles.HomeButton}>
+                <TouchableOpacity onPress={() => navigation.navigate("Dash")}>
+                  <Image
+                    style={styles.HomeButton}
+                    source={require("./assets/barMenu/3.png")}
+                  ></Image>
+                </TouchableOpacity>
+              </View>
+
+              <TouchableOpacity onPress={() => navigation.navigate("More")}>
+                <Image source={require("./assets/barMenu/4.png")}></Image>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={() => navigation.navigate("More")}>
+                <Image source={require("./assets/barMenu/5.png")}></Image>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
       </View>
     </View>
   );
@@ -162,6 +208,34 @@ function App() {
 }
 
 const styles = StyleSheet.create({
+  container99: {
+    marginTop: 10,
+    backgroundColor: "#364F59",
+  },
+  MenuBar: {
+    marginTop: 40,
+    marginBottom: 10,
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  HomeButton: {
+    marginTop: -28,
+  },
+  MenuBar1: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+  },
+  HomeButton: {
+    marginTop: -28,
+  },
+  Parentcontainer: {
+    backgroundColor: "#364F59",
+  },
+  Parentcontainer2: {
+    marginTop: -50,
+    height: 150,
+    backgroundColor: "#364F59",
+  },
   container: {
     alignItems: "center",
     justifyContent: "center",
@@ -274,6 +348,11 @@ const styles = StyleSheet.create({
   Button: {
     marginLeft: 20,
     alignItems: "center",
+  },
+  BOX: {
+    width: 400,
+    height: 100,
+    backgroundColor: "#364F59",
   },
 });
 export default App;

@@ -11,9 +11,32 @@ import {
   Button,
 } from "react-native";
 
+async function login(email, password) {
+  const response = await fetch(
+    `
+    ${process.env.REACT_APP_API_URL}/api/auth/signin`,
+    {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ email, password }),
+    }
+  );
+  const data = await response.json();
+
+  if (result === "200") {
+    await Alert.alert("Vous êtes bien inscris", [
+      { text: "Ok", onPress: () => navigation.navigate("Dash") },
+    ]);
+    reset();
+    navigation.navigate("Dash");
+  }
+  Alert.alert("Il y a un problèmee");
+}
+
 export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.containerGlobal}>
+      <Button title="Go to Dash" onPress={() => login()}></Button>
       <View style={styles.container}>
         <Image
           style={styles.Logo}

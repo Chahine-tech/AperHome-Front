@@ -6,7 +6,7 @@ class MB extends Component {
   render() {
     return (
       <View style={styles.Parentcontainer}>
-        <View style={styles.container}>
+        <View style={styles.container99}>
           <View style={styles.MenuBar}>
             <Image source={require("../assets/barMenu/1.png")}></Image>
             <Image source={require("../assets/barMenu/2.png")}></Image>
@@ -30,7 +30,7 @@ class MB extends Component {
 export default MB;
 
 const styles = StyleSheet.create({
-  container: {
+  container99: {
     marginTop: 10,
     backgroundColor: "#364F59",
   },
