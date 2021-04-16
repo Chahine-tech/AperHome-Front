@@ -11,26 +11,10 @@ import {
   Button,
 } from "react-native";
 
-async function login(email, password) {
-  const response = await fetch(
-    `${process.env.REACT_APP_API_URL}/api/auth/signin`,
-    {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify({ email, password }),
-    }
-  );
-  const data = await response.json();
-  return data;
-}
 export default function LoginScreen({ navigation }) {
   return (
     <View style={styles.containerGlobal}>
       <View style={styles.container}>
-        <Button
-          title="Go to Dash"
-          onPress={() => navigation.navigate("Dash")}
-        ></Button>
         <Image
           style={styles.Logo}
           source={require("../assets/LogoAperHome.png")}
@@ -43,7 +27,6 @@ export default function LoginScreen({ navigation }) {
           placeholder=" Email                                           "
           placeholderTextColor="black"
           autoCapitalize="none"
-          onChangeText={this.handleEmail}
         />
 
         <TextInput
@@ -52,7 +35,6 @@ export default function LoginScreen({ navigation }) {
           placeholder=" Password                                   "
           placeholderTextColor="black"
           autoCapitalize="none"
-          onChangeText={this.handlePassword}
         />
       </View>
 

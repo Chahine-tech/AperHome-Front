@@ -18,25 +18,12 @@ class SC extends Component {
             style={styles.Logo}
             source={require("../assets/LogoAperHome.png")}
           ></Image>
-          <Text style={styles.textContainer}>Bienvenue </Text>
-          <Text style={styles.line}> ______________________________</Text>
-          <TextInput
-            style={styles.input}
-            underlineColorAndroid="transparent"
-            placeholder=" Email                                           "
-            placeholderTextColor="black"
-            autoCapitalize="none"
-            onChangeText={this.handleEmail}
-          />
-
-          <TextInput
-            style={styles.input}
-            underlineColorAndroid="transparent"
-            placeholder=" Password                                   "
-            placeholderTextColor="black"
-            autoCapitalize="none"
-            onChangeText={this.handlePassword}
-          />
+          <Text style={styles.lineAD}> ____________</Text>
+          <Text style={styles.textContainer}>
+            L'application parfaite pour commander{"\n"} de l'alchool et des
+            appéritifs
+          </Text>
+          <Text style={styles.lineED}> ____________</Text>
         </View>
 
         <View style={styles.BOX}></View>
@@ -50,15 +37,24 @@ const styles = StyleSheet.create({
   Logo: {
     aspectRatio: 3,
     resizeMode: "contain",
-    marginTop: -10,
+    marginTop: 150,
   },
-  line: {
+  lineED: {
+    marginLeft: 170,
+    marginTop: -5,
+    fontWeight: "bold",
+    color: "#F9B233",
+  },
+  lineAD: {
+    marginLeft: -170,
     marginTop: -5,
     fontWeight: "bold",
     color: "#F9B233",
   },
 
   containerGlobal: {
+    height: 900,
+    marginTop: -150,
     backgroundColor: "#364F59",
   },
   container: {
@@ -66,5 +62,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     backgroundColor: "#364F59",
   },
-
+  textContainer: {
+    color: "white",
+  },
 });

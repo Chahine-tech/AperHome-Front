@@ -22,7 +22,7 @@ import MB2 from "./helpers/MenuBar2";
 import MM from "./compenents/MoreScreen";
 import CWG from "./helpers/CWG";
 import AS from "./compenents/AboutScreen";
-import SC from './compenents/SplashScreen'
+import SC from "./compenents/SplashScreen";
 
 function Register({ navigation }) {
   return (
@@ -31,14 +31,14 @@ function Register({ navigation }) {
       <View style={styles.Button}>
         <TouchableOpacity
           style={styles.submitButton}
-          onPress={() => navigation.push("Pres1")}
+          onPress={() => navigation.navigate("Pres1")}
         >
           <Text style={styles.submitButtonText}> S'inscrire </Text>
         </TouchableOpacity>
       </View>
       <TouchableOpacity
         style={styles.submitButton2}
-        onPress={() => navigation.push("Pres1")}
+        onPress={() => navigation.navigate("Pres1")}
       >
         <Text style={styles.submitButtonText2}> Submit </Text>
       </TouchableOpacity>
@@ -53,14 +53,14 @@ function Pres({ navigation }) {
       <View style={styles.Button}>
         <TouchableOpacity
           style={styles.submitButton}
-          onPress={() => navigation.push("Dash")}
+          onPress={() => navigation.navigate("Dash")}
         >
           <Text style={styles.submitButtonText}> S'inscrire </Text>
         </TouchableOpacity>
       </View>
       <TouchableOpacity
         style={styles.submitButton2}
-        onPress={() => navigation.push("Pres1")}
+        onPress={() => navigation.navigate("Pres1")}
       >
         <Text style={styles.submitButtonText2}> Submit </Text>
       </TouchableOpacity>
@@ -79,7 +79,7 @@ function Dash({ navigation }) {
           </View>
           <Button
             title="Go to Register"
-            onPress={() => navigation.push("More")}
+            onPress={() => navigation.navigate("More")}
           />
         </ScrollView>
       </SafeAreaView>
@@ -92,7 +92,10 @@ function More({ navigation }) {
     <View styles={styles.ContainerMore}>
       <View>
         <MM />
-        <Button title="Go to Splash" onPress={() => navigation.push("About")} />
+        <Button
+          title="Go to Splash"
+          onPress={() => navigation.navigate("About")}
+        />
         <MB2 />
       </View>
     </View>
@@ -105,7 +108,7 @@ function Log({ navigation }) {
       <CWG />
       <TouchableOpacity
         style={styles.submitButtonLog}
-        onPress={() => navigation.push("Pres1")}
+        onPress={() => navigation.navigate("Pres1")}
       >
         <Text style={styles.submitButtonTextLog}> Se connecter </Text>
       </TouchableOpacity>
@@ -116,14 +119,26 @@ function Log({ navigation }) {
 function About({ navigation }) {
   return (
     <View styles={styles.ContainerMore}>
-      <AS />  
+      <AS />
     </View>
   );
 }
 function Splash({ navigation }) {
   return (
     <View styles={styles.ContainerMore}>
-      <SC />  
+      <SC />
+      <TouchableOpacity
+        style={styles.submitButtonSplash}
+        onPress={() => navigation.navigate("Login")}
+      >
+        <Text style={styles.submitButtonTextSplash}> Se connecter </Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.submitButtonSplash2}
+        onPress={() => navigation.navigate("Register")}
+      >
+        <Text style={styles.submitButtonTextSplash2}> S'inscrire </Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -133,7 +148,7 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Splash">
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Login" component={Log} />
         <Stack.Screen name="Pres1" component={Pres} />
@@ -212,6 +227,45 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   submitButtonTextLog: {
+    color: "white",
+  },
+
+  submitButtonSplash: {
+    backgroundColor: "#F9B233",
+    marginTop: -500,
+    marginLeft: 65,
+    padding: 10,
+    height: 40,
+    width: 250,
+    borderRadius: 50,
+    alignItems: "center",
+    paddingTop: 10,
+    paddingBottom: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
+  },
+  submitButtonTextSplash: {
+    color: "white",
+  },
+
+  submitButtonSplash2: {
+    borderColor: "#F9B233",
+    borderWidth: 1,
+    marginTop: 50,
+    marginLeft: 65,
+    padding: 10,
+    height: 40,
+    width: 250,
+    borderRadius: 50,
+    alignItems: "center",
+    paddingTop: 10,
+    paddingBottom: 10,
+    elevation: 5,
+  },
+  submitButtonTextSplash2: {
     color: "white",
   },
   submitButtonText: {
